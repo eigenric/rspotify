@@ -87,6 +87,7 @@ pub enum Type {
     User,
     Show,
     Episode,
+    Collection,
 }
 impl Type {
     pub fn as_str(&self) -> &str {
@@ -98,6 +99,7 @@ impl Type {
             Type::User => "user",
             Type::Show => "show",
             Type::Episode => "episode",
+            Type::Collection => "collection",
         }
     }
 }
@@ -112,6 +114,7 @@ impl FromStr for Type {
             "user" => Ok(Type::User),
             "show" => Ok(Type::Show),
             "episode" => Ok(Type::Episode),
+            "collection" => Ok(Type::Collection),
             _ => Err(Error::new(ErrorKind::NoEnum(s.to_owned()))),
         }
     }
